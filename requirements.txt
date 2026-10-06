@@ -1,0 +1,11 @@
+# --- API ---
+fastapi==0.121.2
+uvicorn[standard]==0.38.0
+python-dotenv==1.2.1
+
+# --- Agente: LangGraph + LangChain (versiones fijadas y probadas juntas) ---
+langgraph==1.2.13
+langgraph-prebuilt==1.1.0
+langgraph-checkpoint==4.2.0
+langchain-core==1.6.6
+langchain-openai==1.6.7

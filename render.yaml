@@ -1,0 +1,21 @@
+# Blueprint de Render: define el servicio como código.
+# Render lo detecta al crear un "Blueprint" desde el repo de GitHub.
+services:
+  - type: web
+    name: agente-viajes
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: AGENT_MODE
+        value: auto
+      - key: APP_VERSION
+        value: 1.0.0
+      # sync: false -> Render la pide en el panel; el valor nunca vive en el repo
+      - key: OPENAI_API_KEY
+        sync: false
